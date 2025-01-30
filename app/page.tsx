@@ -1,101 +1,169 @@
+"use client"
+
+import { Button } from "@/components/ui/button"
+import { Battery, CheckCircle, Clock, Bell } from "lucide-react"
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex flex-col min-h-screen bg-[#eaeaea]">
+      <header className="bg-[#eaeaea] shadow-sm sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="flex items-center space-x-2">
+            <div className={"relative h-6 w-6"}>
+              <Image src={"/favicon.png"} alt={""} fill={true} />
+            </div>
+            <span className="text-xl font-bold text-[#1a1a1a]">BatterySupporter</span>
+          </div>
+          <nav>
+            <ul className="flex space-x-4">
+              <li>
+                <a href="#features" className="text-[#1a1a1a] hover:text-[#e00606]">
+                  機能
+                </a>
+              </li>
+              <li>
+                <a href="#benefits" className="text-[#1a1a1a] hover:text-[#e00606]">
+                  メリット
+                </a>
+              </li>
+              <li>
+                <a href="https://battery-supporter-web-ver-2.vercel.app" className="text-[#1a1a1a] hover:text-[#e00606]">
+                  始める
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
+      </header>
+
+      <main className="flex-grow">
+        <section className="bg-[#d9d9d9] text-[#1a1a1a] py-20">
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">バッテリー管理と生産性の革新</h1>
+            <p className="text-xl mb-8">Google Tasksとバッテリー残量を連携させ、効率的な作業をサポート</p>
+            <Button size="lg" className="bg-[#e00606] text-white hover:bg-[#e00606]/90" onClick={() => open("https://battery-supporter-web-ver-2.vercel.app")}>
+              今すぐ始める
+            </Button>
+          </div>
+        </section>
+
+        <section id="features" className="py-16 bg-[#eaeaea]">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12 text-[#1a1a1a]">主な機能</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-[#d9d9d9] p-6 rounded-lg shadow-md">
+                <CheckCircle className="h-12 w-12 text-[#e00606] mb-4" />
+                <h3 className="text-xl font-semibold mb-2 text-[#1a1a1a]">タスク分類</h3>
+                <p className="text-[#1a1a1a]">Google Tasksのタスクをバッテリー消費の観点から自動分類</p>
+              </div>
+              <div className="bg-[#d9d9d9] p-6 rounded-lg shadow-md">
+                <Battery className="h-12 w-12 text-[#e00606] mb-4" />
+                <h3 className="text-xl font-semibold mb-2 text-[#1a1a1a]">バッテリー監視</h3>
+                <p className="text-[#1a1a1a]">PCのバッテリー残量をリアルタイムで監視し分析</p>
+              </div>
+              <div className="bg-[#d9d9d9] p-6 rounded-lg shadow-md">
+                <Bell className="h-12 w-12 text-[#e00606] mb-4" />
+                <h3 className="text-xl font-semibold mb-2 text-[#1a1a1a]">スマート通知</h3>
+                <p className="text-[#1a1a1a]">タスク状況とバッテリー残量に基づいた最適なアドバイスを通知</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="benefits" className="py-16 bg-[#d9d9d9]">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12 text-[#1a1a1a]">BatterySupporterのメリット</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="flex items-start space-x-4">
+                <Clock className="h-6 w-6 text-[#e00606] flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-[#1a1a1a]">生産性の向上</h3>
+                  <p className="text-[#1a1a1a]">バッテリー残量を考慮したタスク管理で、作業の中断を最小限に</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <Battery className="h-6 w-6 text-[#e00606] flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-[#1a1a1a]">バッテリー寿命の延長</h3>
+                  <p className="text-[#1a1a1a]">適切な充電タイミングの提案で、バッテリーの健康を維持</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <CheckCircle className="h-6 w-6 text-[#e00606] flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-[#1a1a1a]">ストレス軽減</h3>
+                  <p className="text-[#1a1a1a]">バッテリー切れの心配なく、タスクに集中できる環境を提供</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <Bell className="h-6 w-6 text-[#e00606] flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-[#1a1a1a]">スマートな作業管理</h3>
+                  <p className="text-[#1a1a1a]">AIによる最適なタスクとバッテリー管理の提案で効率アップ</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="cta" className="bg-[#e00606] text-white py-16">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-bold mb-4">生産性を最大化する新しい方法</h2>
+            <p className="text-xl mb-8">BatterySupporterで、スマートな作業環境を手に入れましょう</p>
+            <Button size="lg" className="bg-white text-[#e00606] hover:bg-[#eaeaea]" onClick={() => open("https://battery-supporter-web-ver-2.vercel.app")}>
+              無料で始める
+            </Button>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="bg-[#1a1a1a] text-white py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap justify-between">
+            <div className="w-full md:w-1/3 mb-6 md:mb-0">
+              <h3 className="text-lg font-semibold mb-2">リンク</h3>
+              <ul className="text-sm">
+                <li>
+                  <a href="https://battery-supporter-web-ver-2.vercel.app/pages/privacy-policy" className="hover:text-[#e00606]">
+                    プライバシーポリシー
+                  </a>
+                </li>
+                <li>
+                  <a href="https://battery-supporter-web-ver-2.vercel.app/pages/user-agreement" className="hover:text-[#e00606]">
+                    利用規約
+                  </a>
+                </li>
+                <li>
+                  <a href="https://battery-supporter-web-ver-2.vercel.app/#help" className="hover:text-[#e00606]">
+                    お問い合わせ
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="w-full md:w-1/3">
+              <h3 className="text-lg font-semibold mb-2">ソリューション</h3>
+              <div className="flex space-x-4">
+                <a href="https://battery-supporter-web-ver-2.vercel.app" className="hover:text-[#e00606]">
+                  BatterySupporter
+                </a>
+                <a href="https://chi1180.github.io/BatterySupporter-documentation/starter.html" className="hover:text-[#e00606]">
+                  Documentation
+                </a>
+                <a href="#" className="hover:text-[#e00606]">
+                  Website
+                </a>
+              </div>
+            </div>
+            <div className="w-full md:w-1/3 mb-6 md:mb-0">
+              <h3 className="text-lg font-semibold mb-2">BatterySupporter</h3>
+              <p className="text-sm text-gray-400">生産性とバッテリー管理の革新的なソリューション</p>
+            </div>
+          </div>
+          <div className="mt-8 text-center text-sm text-gray-400">© 2025 BatterySupporter. All rights reserved.</div>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
+
